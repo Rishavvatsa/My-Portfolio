@@ -55,7 +55,7 @@ document.addEventListener("visibilitychange", function () {
 var typed = new Typed(".typing-text", {
   strings: [
     "Undergrad Student",
-    "Associate Software Engineer",
+    "An Associate Software Engineer",
     "NSS Coordinator",
     "Web developer",
   ],
