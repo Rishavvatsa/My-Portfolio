@@ -79,10 +79,13 @@
         <span class="tag">Developer</span>
         
         <p>
-          I am an  undergraduate in BTECH(CSE) from GEU.
-          I am very passionate about improving my coding skills & developing applications & websites.
-          I build WebApps and Websites using html,css,js,react,mongodb,nodejs.
-          . I'm dedicated to enhancing my skills through self-driven projects, particularly in Full-Stack development. I enjoy crafting detailed clones as a way to continuously improve and contribute to the web development field.</p>
+          Currently, I am working at Tech <span style="color:red; text-transform: lowercase;"> mahindra</span> as an Associate Software Engineer.<br>
+          I graduated with a B.Tech in Computer Science Engineering from Graphic Era University.<br>
+          I am passionate about improving my coding skills and developing applications and websites.<br>
+          I build web apps and websites using HTML, CSS, JavaScript, ReactJS, VueJs MongoDB, and Node.js.<br>
+          I also have experience working with Shopify and Liquid.<br>
+          I'm dedicated to enhancing my skills through self-driven projects, especially in Full-Stack development. I enjoy crafting detailed clones to continuously improve and contribute to the web development field.
+        </p>
         
         <div class="box-container">
             <div class="box">
@@ -90,8 +93,8 @@
               <p><span> phone : </span> +91 9334904348</p>
             </div>
             <div class="box">
-              <p><span> email : </span> kumar.rishav.2016959@gmail.com</p>
-              <p><span> place : </span> Dehradun, India - 248002</p>
+              <p><span> email : </span> rishavvatsa62033@gmail.com</p>
+              <p><span> place : </span> Begusarai,Bihar</p>
             </div>
         </div>
         
@@ -137,7 +140,7 @@
         <div class="content">
         <h3>BTECH in Computer Science</h3>
         <p>Graphic Era Deemed to be University| GEU</p>
-        <h4>2020-2024 | Pursuing</h4>
+        <h4>2020-2024 | Completed</h4>
         </div>
     </div>
 
@@ -352,20 +355,28 @@
 <script src="/assets/js/link.js"></script>
 <script src="https://smtpjs.com/v3/smtp.js"></script>
 <script>
-  function sendEmail() {
-    Email.send({
-        SecureToken: "f4da4db2-636b-46e7-8473-2985742309ef",
-        To: 'vatsarishav99@gmail.com',
-        From: document.getElementById("email").value,
-        Subject: "New Contact form Enquiry",
-        Body: "Name:" + document.getElementById("name").value + "<br> Email:" + document.getElementById("email").value + "<br> Phone:" + document.getElementById("phone").value + "<br> Message:" + document.getElementById("message").value
-    }).then(
-        message => alert("Email sent successfully: " + message)
-    ).catch(
-        error => alert("An error occurred: " + error)
-    );
-}
-</script>
+  // Initialize EmailJS
+  (function(){
+    emailjs.init("ulUYnFdCkocKyflg9"); 
+  })();
 
+  function sendEmail() {
+    emailjs.send("service_ic34ycg", "template_sxqdfcj", {
+      name: document.getElementById("name").value,
+      email: document.getElementById("email").value,
+      phone: document.getElementById("phone").value,
+      message: document.getElementById("message").value
+    })
+    .then(
+      function(response) {
+        alert("Email sent successfully!");
+        document.getElementById("contact-form").reset();
+      },
+      function(error) {
+        alert("An error occurred: " + JSON.stringify(error));
+      }
+    );
+  }
+</script>
 </body>
 </html>
